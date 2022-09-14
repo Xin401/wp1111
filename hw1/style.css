@@ -17,6 +17,8 @@ html {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
+    flex-wrap: wrap;
+    /* border: 1px white solid; */
 }
 
 .big_box_container {
@@ -54,11 +56,35 @@ html {
 }
 
 .big_ball {
-    height: 120px;
-    width: 120px;
+    height: 150px;
+    width: 150px;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-color: aliceblue;
     background-color: aliceblue;
+}
+
+
+.hover_pill:hover {
+    opacity: 0.8 !important;
+}
+
+.big_box_container:hover .hover_pill {
+    opacity: 0.3;
+}
+
+
+.hover_pill {
+    opacity: 0;
+    height: 30%;
+    width: 80%;
+    border-radius: 10rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: gray;
 }
 
 .small_box_container {
@@ -66,23 +92,26 @@ html {
     width: 26%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-content: space-around;
+    justify-content: center;
+    align-content: flex-start;
     flex-wrap: wrap;
+    /* border: 1px white solid; */
 }
 
 
 .small_box {
-    height: 140px;
-    width: 170px;
+    height: 7rem;
+    width: 10rem;
     background-color: rgb(61, 64, 67);
     border-radius: 10%;
     display: flex;
-    flex-grow: 0.3;
+    flex-grow: 0.1;
+    flex-shrink: 0.2;
     flex-direction: row;
     justify-content: center;
-    align-items: space-around;
+    align-items: center;
     flex-wrap: wrap;
+    margin: 5px;
 }
 
 .small_box_top {
@@ -117,8 +146,8 @@ html {
 }
 
 .small_ball {
-    height: 60px;
-    width: 60px;
+    height: 4rem;
+    width: 4rem;
     border-radius: 50%;
     background-color: azure;
 }
@@ -142,7 +171,8 @@ html {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
+    /* border: 1px white solid; */
 }
 
 .lower_box1 {
@@ -150,9 +180,8 @@ html {
     width: 20%;
     display: flex;
     flex-direction: row;
-    align-content: space-around;
+    align-items: center;
     justify-content: flex-start;
-    flex-wrap: wrap;
 }
 
 .lower_box2 {
@@ -160,9 +189,48 @@ html {
     width: 30%;
     display: flex;
     flex-direction: row;
-    align-content: space-around;
+    align-items: center;
     justify-content: space-evenly;
-    flex-wrap: wrap;
+    /* border: 1px white solid; */
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 10rem;
+    height: 1.5rem;
+    background-color: rgb(61, 64, 67);
+    color: #fff;
+    text-align: center;
+    border-radius: 1rem;
+    position: absolute;
+    bottom: 4rem;
+}
+
+.tooltip .tooltiptext1 {
+    visibility: hidden;
+    width: 7rem;
+    height: 1.5rem;
+    background-color: rgb(61, 64, 67);
+    color: #fff;
+    text-align: center;
+    border-radius: 1rem;
+    position: absolute;
+    bottom: 3rem;
+    right: -2rem;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.tooltip:hover .tooltiptext1 {
+    visibility: visible;
 }
 
 .lower_box3 {
@@ -170,9 +238,8 @@ html {
     width: 20%;
     display: flex;
     flex-direction: row;
-    align-content: space-around;
+    align-items: center;
     justify-content: space-evenly;
-    flex-wrap: wrap;
 }
 
 .mic_background {
@@ -193,6 +260,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
     background-color: rgb(61, 64, 67);
 }
 
@@ -203,5 +271,99 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(216, 81, 64)
+    cursor: pointer;
+    background-color: rgb(216, 81, 64);
+}
+
+
+.lower_box2 input[type=checkbox] {
+    opacity: 0;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    z-index: 10;
+    cursor: pointer;
+}
+
+input[type=checkbox]:checked+.button {
+    background-color: rgb(216, 81, 64);
+}
+
+@media (max-width:1400px) {
+    .small_box_container {
+        width: 35%;
+    }
+
+    .big_box_container {
+        width: 65%;
+    }
+}
+
+@media (max-width:1000px) {
+    .small_box_container {
+        width: 35%;
+    }
+
+    .big_box_container {
+        width: 65%;
+    }
+
+    .upper {
+        height: 70%;
+        width: 100%;
+    }
+
+    .lower {
+        height: 10%;
+    }
+
+    .lower_box1 * {
+        visibility: hidden;
+    }
+
+    .lower_box2 {
+        width: 40%;
+    }
+
+    .lower_box3 * {
+        visibility: hidden;
+    }
+}
+
+@media (max-width:800px) {
+    .big_box_container {
+        width: 100%;
+        height: 50%;
+    }
+
+    .small_box_container {
+        height: 50%;
+        width: 100%;
+        align-content: center;
+    }
+
+    .small_box {
+        width: 25%;
+        height: 40%;
+    }
+
+    .upper {
+        height: 90%;
+    }
+
+    .lower {
+        height: 10%;
+    }
+
+    .lower_box1 * {
+        visibility: hidden;
+    }
+
+    .lower_box3 * {
+        visibility: hidden;
+    }
+
+    .lower_box2 {
+        width: 100%;
+    }
 }

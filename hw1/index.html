@@ -17,7 +17,14 @@
                     <ion-icon name="mic-off" style="color:white;padding: 10px;"></ion-icon>
                 </div>
                 <div class="big_box">
-                    <div class="big_ball"></div>
+                    <div class="big_ball">
+                        <div class="hover_pill">
+                            <i class="fa-solid fa-thumbtack"></i>
+                            <ion-icon name="grid-outline"></ion-icon>
+                            <i class="fa-solid fa-down-left-and-up-right-to-center"></i>
+                            </i>
+                        </div>
+                    </div>
                 </div>
                 <div class="long_rects2">
                     &ensp;&ensp;&ensp;
@@ -90,31 +97,63 @@
                 </p>
             </div>
             <div class="lower_box2">
-                <div class="button">
-                    <ion-icon name="mic-off" style="color:white;font-size:20px;"></ion-icon>
+                <div class="button tooltip">
+                    <input type="checkbox">
+                    </input>
+                    <div class="button">
+                        <div class=" tooltip" id="mute">
+                            <ion-icon name="mic-off" style="color:white;font-size:20px;">
+                            </ion-icon>
+                            <div class="tooltiptext">mic-off</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="button">
+
+                <div class="button tooltip">
                     <ion-icon name="videocam-off-outline" style="color:white;font-size:20px"></ion-icon>
+                    <div class="tooltiptext">cam-off</div>
                 </div>
-                <div class="button">
+                <div class="button tooltip">
                     <i class="fa-regular fa-hand" style="color:white;font-size:20px"></i>
+                    <div class="tooltiptext">raise-hand</div>
                 </div>
-                <div class="button">
+                <div class="button tooltip">
                     <i class="fa-solid fa-arrow-up-right-from-square" style="color:white;font-size:20px"></i>
+                    <div class="tooltiptext">share</div>
                 </div>
-                <div class="button">
+                <div class="button tooltip">
                     <i class="fa-solid fa-ellipsis-vertical" style="color:white;font-size:20px"></i>
+                    <div class="tooltiptext">more-option</div>
                 </div>
-                <div class="long_button">
+                <div class="long_button tooltip">
                     <ion-icon name="call" style="color:white;font-size:20px"></ion-icon>
+                    <div class="tooltiptext">hang up</div>
                 </div>
             </div>
             <div class="lower_box3">
-                <ion-icon name="information-circle-outline" style="color:white;width: 25px;height: 25px;"></ion-icon>
-                <ion-icon name="people" style="color:white;width: 25px;height: 25px"></ion-icon>
-                <ion-icon name="chatbox-ellipses" style="color:white;width: 25px;height: 25px"></ion-icon>
-                <ion-icon name="shapes" style="color:white;width: 25px;height: 25px"></ion-icon>
-                <ion-icon name="lock-closed-outline" style="color:white;width: 25px;height: 25px"></ion-icon>
+                <div class="tooltip">
+                    <ion-icon name="information-circle-outline" style="color:white;width: 25px;height: 25px;">
+                    </ion-icon>
+                    <div class="tooltiptext1">information</div>
+                </div>
+                <div class="tooltip">
+                    <ion-icon class="tooltip" name="people" style="color:white;width: 25px;height: 25px">
+                    </ion-icon>
+                    <div class="tooltiptext1">participants</div>
+                </div>
+                <div class="tooltip">
+                    <div class="tooltiptext1">chat box</div>
+                    <ion-icon name="chatbox-ellipses" style="color:white;width: 25px;height: 25px"></ion-icon>
+                </div>
+                <div class="tooltip">
+                    <ion-icon class="tooltip" name="shapes" style="color:white;width: 25px;height: 25px"></ion-icon>
+                    <div class="tooltiptext1">activity</div>
+                </div>
+                <div class="tooltip">
+                    <ion-icon class="tooltip" name="lock-closed-outline" style="color:white;width: 25px;height: 25px">
+                    </ion-icon>
+                    <div class="tooltiptext1">control</div>
+                </div>
             </div>
         </div>
     </div>
