@@ -367,3 +367,39 @@ input[type=checkbox]:checked+.button {
         width: 100%;
     }
 }
+
+#no1 {
+    background-image: url('https://i.pinimg.com/originals/aa/86/3c/aa863c234b74f566f78ffc0d6a9f465e.gif');
+    background-size: 110%;
+    /* background-position: ; */
+}
+
+#no2 {
+    background-image: url('https://i.pinimg.com/originals/bb/1a/fe/bb1afece145c78851ce574f4ce934cde.gif');
+    background-size: 130%;
+    background-position: right 0.01rem;
+}
+
+#no3 {
+    background-image: url('https://c.tenor.com/w1Ua1frNOE0AAAAC/jake-the-dog-jake.gif');
+    background-size: 200%;
+    background-position: right 0.1px bottom 4rem;
+}
+
+#no4 {
+    background-image: url('https://i.pinimg.com/originals/54/d4/2b/54d42b63ff9d231ef8480d346a4c71cc.gif');
+    background-size: 120%;
+    /* background-position: right 1px; */
+}
+
+#no5 {
+    background-image: url('https://c.tenor.com/6PUHUhGabuoAAAAC/adventure-time-eyebrows.gif');
+    background-size: 110%;
+    background-position: top 2px;
+}
+
+#no6 {
+    background-image: url('https://media3.giphy.com/media/pO4UHglOY2vII/giphy.gif');
+    background-size: 200%;
+    background-position: center;
+}
