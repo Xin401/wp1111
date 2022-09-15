@@ -99,6 +99,7 @@ html {
     justify-content: center;
     align-content: flex-start;
     flex-wrap: wrap;
+    /* overflow: scroll; */
     /* border: 1px white solid; */
 }
 
@@ -308,19 +309,23 @@ input[type=checkbox]:checked+.button {
 @media (max-width:1000px) {
     .small_box_container {
         width: 35%;
+        align-items: flex-start;
     }
 
     .big_box_container {
         width: 65%;
     }
 
+
     .upper {
         height: 70%;
         width: 100%;
+
     }
 
     .lower {
         height: 10%;
+        justify-content: start;
     }
 
     .lower_box1 * {
