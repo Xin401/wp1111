@@ -28,6 +28,7 @@ html {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    /* border: 1px white solid; */
 }
 
 .long_rects1 {
@@ -36,6 +37,7 @@ html {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
+    /* border: 1px white solid; */
 }
 
 .long_rects2 {
@@ -43,8 +45,9 @@ html {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-items: flex-start;
+    justify-content: flex-start;
     align-items: flex-end;
+    /* border: 1px white solid; */
 }
 
 .big_box {
@@ -53,6 +56,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    /* border: 1px white solid; */
 }
 
 .big_ball {
@@ -68,11 +72,11 @@ html {
 
 
 .hover_pill:hover {
-    opacity: 0.8 !important;
+    opacity: 1.1 !important;
 }
 
 .big_box_container:hover .hover_pill {
-    opacity: 0.3;
+    opacity: 0.7;
 }
 
 
@@ -112,6 +116,7 @@ html {
     align-items: center;
     flex-wrap: wrap;
     margin: 5px;
+    /* border: 1px white solid; */
 }
 
 .small_box_top {
@@ -125,7 +130,7 @@ html {
 }
 
 .small_box_middle {
-    height: 45%;
+    height: 40%;
     width: 50%;
     display: flex;
     flex-direction: row;
@@ -135,14 +140,14 @@ html {
 }
 
 .small_box_bottom {
-    height: 20%;
-    width: 80%;
+    height: 25%;
+    width: 90%;
     display: flex;
     flex-direction: row;
     color: white;
     justify-content: flex-start;
-    align-items: center;
-    /* border: 1px white solid; */
+    align-items: flex-end;
+    /* border: 1px white solid;mu */
 }
 
 .small_ball {
@@ -162,6 +167,7 @@ html {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    border: 1px white solid;
 }
 
 
