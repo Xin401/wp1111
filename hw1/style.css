@@ -296,6 +296,22 @@ input[type=checkbox]:checked+.button {
     background-color: rgb(216, 81, 64);
 }
 
+#off {
+    display: inline;
+}
+
+#on {
+    display: none;
+}
+
+input[type=checkbox]:checked+.button #off {
+    display: none;
+}
+
+input[type=checkbox]:checked+.button #on {
+    display: inline;
+}
+
 @media (max-width:1400px) {
     .small_box_container {
         width: 35%;
