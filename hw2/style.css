@@ -109,17 +109,19 @@ html {
 }
 
 .ball {
-    height: 4em;
-    width: 4em;
+    height: 4.5em;
+    width: 4.5em;
     border-radius: 50%;
     background-color: azure;
     position: absolute;
     flex-grow: 1;
+    /* flex-shrink: 0.1; */
 }
 
 .big_box_container .ball {
     height: 10em;
     width: 10em;
+    z-index: 123;
     border-radius: 50%;
     background-color: azure;
     position: absolute;
@@ -134,8 +136,8 @@ html {
 }
 
 #full #pin .ball {
-    height: 10rem;
-    width: 10rem;
+    height: 10em;
+    width: 10em;
 }
 
 .box_bottom {
@@ -393,6 +395,11 @@ input[type=checkbox]:checked+.button .on {
         height: 50%;
         width: 100%;
         align-content: flex-start;
+    }
+
+    .small_box_container .ball {
+        width: 4em;
+        height: 4em;
     }
 
     .box {

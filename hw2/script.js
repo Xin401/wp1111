@@ -1,9 +1,9 @@
 let big_container = document.querySelector(".big_box_container")
 let small_container = document.querySelector(".small_box_container")
 
-let num = Math.floor(prompt("請輸入1~15個參加者"));
-while (num < 1 || num > 15) {
-    num = Math.floor(prompt("1~15個啦，再給你一次機會"));
+let num = prompt("請輸入1~15個參加者", "1");
+while (!(num >= 1 && num <= 15)) {
+    num = prompt("1~15個啦，再給你一次機會", "1");
 }
 for (let i = 1; i < num; i++) {
     addpeople();
@@ -16,7 +16,7 @@ function dele(d) {
     box.remove();
     if (big_container.childElementCount == 0) {
         big_container.style.display = 'none';
-        small_container.style.display = 'none';
+        small_container.style.display = 'flex';
         small_container.setAttribute('id', 'full');
     }
     if (document.querySelectorAll(".box").length == 1) {
@@ -80,7 +80,8 @@ setTime();
 function setTime() {
     let currentTime = new Date();
     let time = document.querySelector('#time')
-    time.innerHTML = currentTime.getHours() + ":" + currentTime.getMinutes() + ":" + currentTime.getSeconds();
+    t = currentTime.toLocaleTimeString();
+    time.innerHTML = t;
     setTimeout('setTime()', 1000);
 }
 
