@@ -8,6 +8,7 @@ html {
     display: flex;
     flex-wrap: wrap;
     align-content: space-around;
+    justify-content: center;
 }
 
 .upper {
@@ -148,8 +149,17 @@ html {
     /* border: 1px white solid; */
 }
 
+.name {
+    margin: 0px;
+}
 
+.box_bottom .fa-thumbtack {
+    display: none;
+}
 
+#pin .box_bottom .fa-thumbtack {
+    display: inline !important;
+}
 
 .hover_pill:hover {
     opacity: 0.9 !important;
@@ -188,7 +198,7 @@ html {
 
 .lower {
     height: 20%;
-    width: 100%;
+    width: 98%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -382,7 +392,7 @@ input[type=checkbox]:checked+.button .on {
     .small_box_container {
         height: 50%;
         width: 100%;
-        align-content: center;
+        align-content: flex-start;
     }
 
     .box {
