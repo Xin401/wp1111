@@ -20,7 +20,7 @@ const HomePage = ({ startGameOnClick, mineNumOnChange, boardSizeOnChange, mineNu
     boardSizeOnChange(bSize);
   }
   useEffect(() => {
-    if (mines > bSize * bSize) {
+    if (mines >= bSize * bSize) {
       setError(true);
     }
     else {
