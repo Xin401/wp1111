@@ -21,7 +21,16 @@ const Row = ({ guess, rowIdx }) => {
             {/* ↓ Default row, you should modify it. ↓ */}
             <div className='Row-wrapper'>
             {letters.map((l,index)=>{
-                return  <div key={rowIdx+'-'+index} id={rowIdx+'-'+index} className='Row-wordbox'>{l}</div>
+                if (l===guess.solution[0]||l===guess.solution[1]||l===guess.solution[2]||l===guess.solution[3]||l===guess.solution[4]&&l!==guess.solution[index]) {
+                    return  <div key={rowIdx+'-'+index} id={rowIdx+'-'+index} className='Row-wordbox yellow'>{l}</div>
+                }
+                else if(l===guess.solution[index]) {
+                    return  <div key={rowIdx+'-'+index} id={rowIdx+'-'+index} className='Row-wordbox green'>{l}</div>
+                }
+                else
+                {
+                    return  <div key={rowIdx+'-'+index} id={rowIdx+'-'+index} className='Row-wordbox grey'>{l}</div>
+                }
             })}
             </div>
             {/* ↑ Default row, you should modify it. ↑ */}
