@@ -14,7 +14,7 @@ const Row = ({ guess, rowIdx }) => {
     let letters = null
     if(guess)
     {
-        letters = guess.property.split('')
+        letters = guess.split('')
         return(<div className='Row-container'>
             {/* TODO 3: Row Implementation -- Row */}
             

@@ -48,7 +48,7 @@ const Wordle = ({ solution }) => {
             
             
             {/* TODO 2-1:  call `Board` and pass `turn`, `guesses`, `curGuess` into it  */}
-            <Board turn={turn} guesses={guesses} curGuess={curGuess}/>
+            <Board turn={turn} guesses={guesses} curGuess={curGuess} solution={solution}/>
             
             {/* TODO 1-1: call `Keyboard` and pass `usedChars` into it. */}
             <Keyboard usedChars={usedChars}/>
