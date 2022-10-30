@@ -18,8 +18,9 @@ const Board = ({ turn, guesses, curGuess,solution }) => {
                 Hint: Use `CurRow` instead of `Row` when you are passing `curGuess` into it. */}
                 
         {guesses.map((g,index)=>{
-            if(turn==index)
-            {return(
+            if(turn===index)
+            {
+                return(
                 <CurRow key={'row'+index} id={'row'+index} curGuess={curGuess} rowIdx={index} solution={solution}/>
             )}
             else

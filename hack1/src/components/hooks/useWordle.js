@@ -40,7 +40,11 @@ const useWordle = (solution) => {
             return;
         }
         // (3) Press Enter, store curGuess to guesses, reset curGuess and update parameters .
-    
+        // let tmp = guesses
+        // tmp[turn]=curGuess.substring(0,5)
+        // setGuesses(tmp)
+        // setCurGuess('')
+        // setTurn(prev=>prev+1)
         // console.log("Press Enter!!!! Store and reset curGuess!");
         // TODO 4: Check each wordbox's color in `curGuess` and update `guess`, `turn` and `curGuess`
         // Hint: check green first, and then check yellow.
