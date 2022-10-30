@@ -6,7 +6,7 @@ router.post('/start', (_, res) => {
     res.json({ msg: 'The game has started.' })
 })
 router.get('/guess', (req, res) => {
-    if (Number(req.query.number) > 100 || Number(req.query.number) < 1)
+    if (Number(req.query.number) > 100 || Number(req.query.number) < 1 || isNaN(Number(req.query.number)))
         res.status(406).send({ msg: 'Not a legal number.' })
     else {
         if (Number(req.query.number) === getNumber())

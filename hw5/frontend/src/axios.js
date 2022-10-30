@@ -6,9 +6,14 @@ const startGame = async () => {
     return msg
 }
 const guess = async (number) => {
-    const { data: { msg } } = await instance.get
-        ('/guess', { params: { number } })
-    return msg
+    try {
+        const { data: { msg } } = await instance.get
+            ('/guess', { params: { number } })
+        return msg
+    }
+    catch (error) {
+        return error.response.data.msg
+    }
 }
 const restart = async () => {
     const { data: { msg } } = await instance.post('/restart')
