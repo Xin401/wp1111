@@ -1,6 +1,6 @@
-let number = 0;
+let number = 1;
 const genNumber = () => {
-    number = Math.ceil(Math.random() * 100);
+    number = Math.ceil(Math.random() * 99) + 1;
 }
 const getNumber = () => {
     return number;

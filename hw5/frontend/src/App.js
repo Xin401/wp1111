@@ -50,7 +50,7 @@ function App() {
     </>
   const winningMode = (
     <>
-      <p>you won! the number was{number}.</p>
+      <p>you won! the number was {number}.</p>
       <button // Handle restart for backend and frontend
         onClick={handleRestart}
       >restart</button>
