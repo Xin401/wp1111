@@ -7,14 +7,14 @@ router.post('/start', (_, res) => {
 })
 router.get('/guess', (req, res) => {
     if (Number(req.query.number) > 100 || Number(req.query.number) < 1 || isNaN(Number(req.query.number)))
-        res.status(406).send({ msg: 'Not a legal number.' })
+        res.status(406).send({ msg: `${req.query.number} is not a legal number.` })
     else {
         if (Number(req.query.number) === getNumber())
             res.json({ msg: 'Equal' })
         if (Number(req.query.number) <= getNumber())
-            res.json({ msg: 'The number is too small.' })
+            res.json({ msg: `${req.query.number} is too small.` })
         else
-            res.json({ msg: 'The number is too big.' })
+            res.json({ msg: `${req.query.number} is too big.` })
     }
 })
 // 去 (memory) DB 拿答案的數字
