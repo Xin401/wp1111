@@ -11,6 +11,7 @@ function App() {
   const handleStart = async () => {
     const response = await startGame();
     setHasStarted(true)
+
     setStatus(response)
   }
   const handleInput = (e) => {
