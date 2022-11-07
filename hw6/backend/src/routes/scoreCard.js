@@ -28,7 +28,7 @@ const queryDB = async (req, res) => {
                 ${result.subject}, ${result.score})`)
         })
         if (results.length === 0) {
-            res.json({ messages: ret, message: `${req.query.type} ${req.query.queryString} not found!` })
+            res.json({ message: `${req.query.type} ${req.query.queryString} not found!` })
         }
         else {
             res.json({ messages: ret, message: "" })
