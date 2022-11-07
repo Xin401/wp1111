@@ -8,13 +8,15 @@ const deleteDB = async (req, res) => {
     } catch (e) { throw new Error("Database deletion failed"); }
 };
 const addDB = async (req, res) => {
-    const existName = await ScoreCard.findOne({ name: req.body.name });
-    const existSubject = await ScoreCard.findOne({ subject: req.body.subject });
-    if (existName && existSubject) { res.json({ message: `Updating (${req.body.name}, ${req.body.subject}, ${req.body.score})` }); }
+    const existing = await ScoreCard.findOne({ name: req.body.name, subject: req.body.subject });
+    if (existing) {
+        await ScoreCard.updateOne({ _id: existing.id }, { score: req.body.score });
+        res.json({ message: `Updating (${req.body.name}, ${req.body.subject}, ${req.body.score})`, card: existing });
+    }
     else {
         const newScoreCard = new ScoreCard({ name: req.body.name, subject: req.body.subject, score: req.body.score });
         console.log("Created ScoreCard");
-        newScoreCard.save()
+        await newScoreCard.save()
         res.json({ message: `Adding (${req.body.name}, ${req.body.subject}, ${req.body.score})`, card: { newScoreCard } })
     }
 }
@@ -25,11 +27,11 @@ const queryDB = async (req, res) => {
             return (`Found card with ${req.query.type}: (${result.name},
                 ${result.subject}, ${result.score})`)
         })
-        if (results.length == 0) {
-            res.json({ message: `${req.query.type} ${req.query.queryString} not found!` })
+        if (results.length === 0) {
+            res.json({ messages: ret, message: `${req.query.type} ${req.query.queryString} not found!` })
         }
         else {
-            res.json({ messages: ret })
+            res.json({ messages: ret, message: "" })
         }
     }
     else {

@@ -72,7 +72,7 @@ const Body = () => {
     } = await axios.get('/cards', {
       params: {
         type: queryType,
-        queryString,
+        queryString: queryString,
       },
     });
 
