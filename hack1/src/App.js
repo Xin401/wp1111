@@ -12,7 +12,7 @@ import Wordle from './components/Wordle';
 import React, { useState, useEffect } from 'react';
 
 
-const App = () =>  {
+const App = () => {
   const solutions = config.solutions;
   const [solution, setSolution] = useState(null);
 

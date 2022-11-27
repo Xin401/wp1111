@@ -40,29 +40,49 @@ const useWordle = (solution) => {
             return;
         }
         // (3) Press Enter, store curGuess to guesses, reset curGuess and update parameters .
-        // let tmp = guesses
-        // tmp[turn]=curGuess.substring(0,5)
-        // setGuesses(tmp)
-        // setCurGuess('')
-        // setTurn(prev=>prev+1)
         // console.log("Press Enter!!!! Store and reset curGuess!");
         // TODO 4: Check each wordbox's color in `curGuess` and update `guess`, `turn` and `curGuess`
         // Hint: check green first, and then check yellow.
-
+        let newGuess = guesses
+        let newChar = usedChars
+        let solutions = solution.split('')
+        newGuess[turn] = []
+        for (let i = 0; i < 5; i++) {
+            if (curGuess[i] === solution[i]) {
+                newGuess[turn].push({ char: curGuess[i], color: 'green' });
+                solutions[i] = '';
+                newChar[curGuess[i]] = 'green'
+            }
+            else {
+                newGuess[turn].push({ char: curGuess[i], color: 'grey' });
+            }
+        }
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                if (curGuess[i] === solutions[j]) {
+                    newGuess[turn][i] = ({ char: curGuess[i], color: 'yellow' });
+                    solutions[j] = '';
+                    newChar[curGuess[i]] === 'green' ? newChar[curGuess[i]] = 'green' : newChar[curGuess[i]] = 'yellow';
+                    break;
+                }
+            }
+        }
+        setGuesses(newGuess)
         // add the formatted guess generated into guesses.
-        
+
         // turn += 1
-        
-        // set curGuess to default
+        setTurn(turn + 1)
 
-
+        // set curGuess to default)
         // TODO 5: update parameters, check each char usage and show in `Keyboard` and reset `curGuess`.
         // 5-1) check if curGuess === solution, if true, set `isCorrect` to true.
-        
-        
+        if (curGuess === solution) {
+            setIsCorrect(true)
+        }
+        setCurGuess("")
+
         // 5-2) usedChars update
-        
-        
+        setUsedChars(newChar)
     }
 
     // Handle the action of `Backspace`
@@ -73,7 +93,7 @@ const useWordle = (solution) => {
     // Handle the action of pressing a character.
     const handleCharacter = (key) => {
         // If curGuess's length is longer than 5, do nothing
-        if (curGuess.length < 5){
+        if (curGuess.length < 5) {
             setCurGuess(curGuess + key);
         }
     }

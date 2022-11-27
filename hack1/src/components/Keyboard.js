@@ -22,7 +22,7 @@ const Keyboard = ({ usedChars }) => {
         setSecondRowLetters(config.letters.slice(10, 19));
         setThirdRowLetters(config.letters.slice(19, 29));
     }, [])
-    
+
     return (
         <div className='Keyboard-container'>
             {/* TODO 1-2: show `firstRowLetters` and `secondRowLetters` */}
@@ -30,7 +30,7 @@ const Keyboard = ({ usedChars }) => {
                 {firstRowLetters && firstRowLetters.map((letter) => {
                     const color = usedChars[letter.char]
                     return (
-                        <div id = {'char_' + letter.char} key={'char_' + letter.char} className={'Keyboard-char ' + color}>{letter.char}</div>
+                        <div id={'char_' + letter.char} key={'char_' + letter.char} className={'Keyboard-char ' + color}>{letter.char}</div>
                     )
                 })}
             </div>
@@ -38,12 +38,13 @@ const Keyboard = ({ usedChars }) => {
                 {secondRowLetters && secondRowLetters.map((letter) => {
                     const color = usedChars[letter.char]
                     return (
-                        <div id = {'char_' + letter.char} key={'char_' + letter.char} className={'Keyboard-char ' + color}>{letter.char}</div>
+                        <div id={'char_' + letter.char} key={'char_' + letter.char} className={'Keyboard-char ' + color}>{letter.char}</div>
                     )
                 })}
             </div>
             {/* TODO 5: add color to each `Keyboard-char`. */}
-            
+
+
             <div id='KBrow_3' key='KBrow_3' className='Keyboard-row'>
                 {thirdRowLetters && thirdRowLetters.map((letter) => {
                     const color = usedChars[letter.char]
@@ -52,9 +53,9 @@ const Keyboard = ({ usedChars }) => {
                             <div key={'char_' + letter.char} className='Keyboard-char-enter' >{letter.char}</div>
                             :
                             letter.char === 'Backspace' ?
-                                <div  key={'char_' + letter.char} className='Keyboard-char-backspace'><IoBackspaceOutline /></div>
+                                <div key={'char_' + letter.char} className='Keyboard-char-backspace'><IoBackspaceOutline /></div>
                                 :
-                                <div id = {'char_' + letter.char} key={'char_' + letter.char} className={'Keyboard-char ' + color}>{letter.char}</div>
+                                <div id={'char_' + letter.char} key={'char_' + letter.char} className={'Keyboard-char ' + color}>{letter.char}</div>
                     )
                 })}
             </div>
