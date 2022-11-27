@@ -20,6 +20,7 @@ db.once('open', () => {
         ws.id = uuidv4();
         ws.box = '';
         ws.onmessage = wsConnect.onMessage(wss, ws);
+        ws.onclose = wsConnect.onClose(wss, ws);
     });
 });
 const PORT = process.env.PORT || 4000;

@@ -7,12 +7,12 @@ const sendStatus = (payload, ws) => {
 }
 const chatBoxes = {}
 const broadcastMessage = (wss, data, status, chatBoxName) => {
-    console.log(Array.from(chatBoxes[chatBoxName]))
     const inRoom = Array.from(chatBoxes[chatBoxName])
     inRoom.map((room) => {
         sendData(data, room);
         sendStatus(status, room);
     })
+    console.log(chatBoxes)
     // const inroom = Array.from(chatBoxes)
     // wss.clients.forEach((client) => {
     //     sendData(data, client);
@@ -46,7 +46,13 @@ const validateChatBox = async (name, participants) => {
         (["users", { path: 'messages', populate: 'sender' }]);
 };
 export default {
-
+    onClose: () => async (ws) => {
+        if (ws.box !== "" && chatBoxes[ws.box]) {
+            // user(ws) was in another chatbox
+            chatBoxes[ws.box].delete(ws);
+        }
+        console.log('ws close')
+    },
     onMessage: (wss, ws) => (
         async (byteString) => {
             const { data } = byteString
@@ -104,7 +110,6 @@ export default {
                         ({ chatBox: box._id, sender: me._id, body }).save();
                     box.messages.push(msg._id);
                     box.save();
-                    console.log(msg)
                     broadcastMessage(wss, ['output', [{ sender: name, body: body }]], {
                         type: 'success',
                         msg: 'Message sent.'
