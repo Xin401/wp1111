@@ -12,7 +12,7 @@ const broadcastMessage = (wss, data, status, chatBoxName) => {
         sendData(data, room);
         sendStatus(status, room);
     })
-    console.log(chatBoxes)
+    // console.log(chatBoxes)
     // const inroom = Array.from(chatBoxes)
     // wss.clients.forEach((client) => {
     //     sendData(data, client);
@@ -96,7 +96,7 @@ export default {
                     })
                     broadcastMessage(wss, ['init', messages], {
                         type: 'success',
-                        msg: 'Message sent.'
+                        msg: 'Reload!!!'
                     }, chatBoxName)
                     break;
                 }

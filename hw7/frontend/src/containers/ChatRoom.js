@@ -1,6 +1,6 @@
 import './App.css'
 import { useState, useEffect, useRef } from 'react'
-import { Input, message, Tabs } from 'antd'
+import { Input, Tabs } from 'antd'
 import { useChat } from './hooks/useChat'
 import styled from 'styled-components'
 import Title from "../components/Title"
@@ -18,9 +18,8 @@ const ChatBoxesWrapper = styled(Tabs)`
     overflow: auto;
 `;
 
-const FootRef = styled.div`
-height: 30px;
-`;
+
+
 const ChatRoom = () => {
     const { messages, sendMessage, me, displayStatus, startChat } = useChat()
     const [chatBoxes, setChatBoxes] = useState([])
