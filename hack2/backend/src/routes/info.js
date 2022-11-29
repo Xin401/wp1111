@@ -9,7 +9,6 @@
 // * ////////////////////////////////////////////////////////////////////////
 
 import Info from '../models/info'
-import Restaurant from '../models/info'
 
 exports.GetSearch = async (req, res) => {
     /*******    NOTE: DO NOT MODIFY   *******/
@@ -18,17 +17,92 @@ exports.GetSearch = async (req, res) => {
     const typeFilter = req.query.typeFilter
     const sortBy = req.query.sortBy
     /****************************************/
-    Restaurant.find({ price: priceFilter, tags: { $all: [mealFilter, typeFilter] } }).exec((err, data) => {
-        console.log(data)
-        if (err) {
-            console.log(err)
-            res.status(403).send({ message: 'error', contents: [] })
-        }
-        else {
-            res.status(200).send({ message: 'success', contents: data })
-        }
+    let price
+    if (priceFilter) {
+        price = await priceFilter.map((p) => {
+            return p.length;
+        })
     }
-    )
+
+    if ((!priceFilter && !mealFilter && !typeFilter) || (priceFilter && mealFilter && typeFilter)) {
+        Info.find().sort(sortBy).exec((err, data) => {
+            if (err) {
+                res.status(403).send({ message: 'error', contents: [] })
+            }
+            else {
+                res.status(200).send({ message: 'success', contents: data })
+            }
+        }
+        )
+    }
+    else if (priceFilter && mealFilter) {
+        Info.find({ price: { $in: price } }).find({ tag: { $in: mealFilter } }).sort(sortBy).exec((err, data) => {
+            if (err) {
+                res.status(403).send({ message: 'error', contents: [] })
+            }
+            else {
+                res.status(200).send({ message: 'success', contents: data })
+            }
+        }
+        )
+    }
+    else if (priceFilter && typeFilter) {
+        Info.find({ price: { $in: price } }).find({ tag: { $in: typeFilter } }).sort(sortBy).exec((err, data) => {
+            if (err) {
+                res.status(403).send({ message: 'error', contents: [] })
+            }
+            else {
+                res.status(200).send({ message: 'success', contents: data })
+            }
+        }
+        )
+    }
+    else if (mealFilter && typeFilter) {
+        Info.find({ tag: { $in: mealFilter } }).find({ tag: { $in: typeFilter } }).sort(sortBy).exec((err, data) => {
+            if (err) {
+                res.status(403).send({ message: 'error', contents: [] })
+            }
+            else {
+                res.status(200).send({ message: 'success', contents: data })
+            }
+        }
+        )
+    }
+    else if (priceFilter) {
+        Info.find({ price: { $in: price } }).sort(sortBy).exec((err, data) => {
+            if (err) {
+                res.status(403).send({ message: 'error', contents: [] })
+            }
+            else {
+                res.status(200).send({ message: 'success', contents: data })
+            }
+        }
+        )
+    }
+    else if (mealFilter) {
+        Info.find({ tag: { $in: mealFilter } }).sort(sortBy).exec((err, data) => {
+            if (err) {
+                res.status(403).send({ message: 'error', contents: [] })
+            }
+            else {
+                res.status(200).send({ message: 'success', contents: data })
+            }
+        }
+        )
+    }
+    else {
+        Info.find({ tag: { $in: typeFilter } }).sort(sortBy).exec((err, data) => {
+            if (err) {
+                res.status(403).send({ message: 'error', contents: [] })
+            }
+            else {
+                res.status(200).send({ message: 'success', contents: data })
+            }
+        }
+        )
+    }
+
+
     // NOTE Hint: 
     // use `db.collection.find({condition}).exec(err, data) {...}`
     // When success, 
@@ -47,7 +121,14 @@ exports.GetInfo = async (req, res) => {
     /*******    NOTE: DO NOT MODIFY   *******/
     const id = req.query.id
     /****************************************/
-
+    Info.find({ id: id }).exec((err, data) => {
+        if (err) {
+            res.status(403).send({ message: 'error', contents: [] })
+        }
+        else {
+            res.status(200).send({ message: 'success', contents: data })
+        }
+    })
     // NOTE USE THE FOLLOWING FORMAT. Send type should be 
     // if success:
     // {

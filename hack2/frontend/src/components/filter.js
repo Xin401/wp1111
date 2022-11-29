@@ -34,12 +34,6 @@ const Filter = ({ priceFilter, setPriceFilter, mealFilter, setMealFilter, typeFi
 
     const modifyFilter = (key, filter) => {
         // TODO Part II-1: change filter state on clicking the pertaining checkboxes
-        // if (filter.findIndex(key)) {
-        //     filter.splice(filter.findIndex(key), filter.findIndex(key) + 1)
-        // }
-        // else {
-        //     filter.push(key)
-        // }
         let flag = -1;
         filter = filter.map((f, i) => {
             if (f === key) {
@@ -59,7 +53,6 @@ const Filter = ({ priceFilter, setPriceFilter, mealFilter, setMealFilter, typeFi
     const modifyPriceFilter = (key) => {
         priceFilter = modifyFilter(key, priceFilter)
         setPriceFilter(priceFilter)
-        console.log(priceFilter)
         setDisplay(getTagString())
     }
 

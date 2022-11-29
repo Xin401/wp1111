@@ -44,10 +44,9 @@ const NavBar = () => {
                 priceFilter: priceFilter,
                 mealFilter: mealFilter,
                 typeFilter: typeFilter,
-                sortBy: undefined
+                sortBy: sortMethod
             }
         });
-
     };
     return (
         <div className='navBarContainer'>
