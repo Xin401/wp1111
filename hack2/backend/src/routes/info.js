@@ -21,6 +21,7 @@ exports.GetSearch = async (req, res) => {
     Restaurant.find({ price: priceFilter }).exec((err, data) => {
         console.log(data)
         if (err) {
+            console.log(err)
             res.status(403).send({ message: 'error', contents: [] })
         }
         else {
