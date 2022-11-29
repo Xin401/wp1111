@@ -18,7 +18,7 @@ exports.GetSearch = async (req, res) => {
     const typeFilter = req.query.typeFilter
     const sortBy = req.query.sortBy
     /****************************************/
-    Restaurant.find({ price: priceFilter }).exec((err, data) => {
+    Restaurant.find({ price: priceFilter, tags: { $all: [mealFilter, typeFilter] } }).exec((err, data) => {
         console.log(data)
         if (err) {
             console.log(err)
