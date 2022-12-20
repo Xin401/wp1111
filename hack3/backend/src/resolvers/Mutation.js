@@ -1,5 +1,5 @@
 const Mutation = {
-  createItem: async (parent, { input }, {itemModel, pubSub}) => {
+  createItem: async (parent, { input }, { itemModel, pubSub }) => {
     const newItem = new itemModel(input);
     await newItem.save();
     pubSub.publish("ITEM_CREATED", {
@@ -8,7 +8,7 @@ const Mutation = {
     return newItem;
   },
 
-  updateItem: async (parent, { input }, {itemModel, pubSub}) => {
+  updateItem: async (parent, { input }, { itemModel, pubSub }) => {
     const item = await itemModel.findOneAndUpdate(
       { id: input.id },
       {
@@ -35,6 +35,16 @@ const Mutation = {
     return newItem;
   },
   // TODO 5.2 Define the itemDelete mutation resolver
+  deleteItem: async (parent, { id }, { itemModel, pubSub }) => {
+    await itemModel.remove({ id: id })
+    // const newItem = {
+    //   id: id
+    // }
+    // pubSub.publish("ITEM_DELETED", {
+    //   itemDeleted: id,
+    // });
+    return id;
+  },
   // TODO 6.3 Publish itemDeleted
 
   // TODO 5.2 End

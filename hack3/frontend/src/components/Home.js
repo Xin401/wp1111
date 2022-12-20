@@ -52,18 +52,37 @@ function Home() {
         document: ITEM_UPDATED_SUBSCRIPTION,
         updateQuery: (prev, { subscriptionData }) => {
           if (!subscriptionData.data) return prev;
-          const updatedItem = subscriptionData.data.itemUpdated;
+          const deletedItem = subscriptionData.data.itemDeleted;
           return {
-            items: prev.items.map((item) => (item.id === updatedItem.id ? updatedItem : item)),
+            items: prev.items.map((item) => (item.id === deletedItem.id ? deletedItem : item)),
           };
         },
       });
     },
     [subscribeToMore],
   );
-  
-  // TODO 6.5 Logic of subscription
 
+  // TODO 6.5 Logic of subscription
+  // useEffect(
+  //   () => {
+  //     subscribeToMore({
+  //       document: ITEM_DELETED_SUBSCRIPTION,
+  //       updateQuery: (prev, { subscriptionData }) => {
+  //         if (!subscriptionData.data) return prev;
+  //         const updatedItem = subscriptionData.data.itemUpdated;
+  //         const object = prev.items.find(object => {
+  //           return object.id === updatedItem.id;
+  //         })
+  //         console.log(object);
+  //         prev.items.splice(object, 1);
+  //         return {
+  //           items: prev.items,
+  //         };
+  //       },
+  //     });
+  //   },
+  //   [subscribeToMore],
+  // );
   // TODO 6.5 End 
 
   if (loading) return <p>Loading...</p>;
