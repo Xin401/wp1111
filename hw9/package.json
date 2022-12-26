@@ -5,10 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "cd frontend && yarn start",
-    "server": "cd backend && yarn server",
-    "install:prod": "cd frontend && yarn install --freeze-lockfile && cd ../backend && yarn install --freeze-lockfile",
-    "build": "cd frontend && yarn build",
-    "deploy": "cd backend && yarn deploy"
+    "server": "cd backend && yarn server"
   },
   "dependencies": {
     "cors": "^2.8.5"
