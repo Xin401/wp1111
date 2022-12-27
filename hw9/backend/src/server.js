@@ -9,6 +9,7 @@ console.log(process.env.MONGO_URL);
 db.connect();
 if (process.env.NODE_ENV === "development") {
     app.use(cors());
+    app.use('/api', routes);
 }
 if (process.env.NODE_ENV === "production") {
     const __dirname = path.resolve();
@@ -17,11 +18,11 @@ if (process.env.NODE_ENV === "production") {
     app.get("/*", function (req, res) {
         res.sendFile(path.join(__dirname, "../frontend", "build", "index.html"));
     });
+    console.log('fuck')
 }
 app.use(express.json());
-
+app.use('/api', routes);
 const port = process.env.PORT || 4000;
 app.listen(port, () =>
     console.log(`Example app listening on port ${port}!`),
 );
-app.use('/', routes);
