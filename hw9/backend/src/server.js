@@ -9,7 +9,6 @@ console.log(process.env.MONGO_URL);
 db.connect();
 if (process.env.NODE_ENV === "development") {
     app.use(cors());
-    app.use('/api', routes);
 }
 if (process.env.NODE_ENV === "production") {
     const __dirname = path.resolve();
