@@ -17,9 +17,11 @@ if (process.env.NODE_ENV === "production") {
         res.sendFile(path.join(__dirname, "../frontend", "build", "index.html"));
     });
 }
-app.use(express.json());
+app.get("/api", (req, res) => {
+    res.send({ message: 'fuck' }).status(200)
+})
 app.use('/api', routes);
-app.get('/api', () => { console.log('fuck') })
+
 const port = process.env.PORT || 4000;
 app.listen(port, () =>
     console.log(`Example app listening on port ${port}!`),
