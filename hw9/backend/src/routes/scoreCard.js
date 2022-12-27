@@ -21,7 +21,6 @@ const addDB = async (req, res) => {
     }
 }
 const queryDB = async (req, res) => {
-    console.log('fuck')
     if (req.query.type === 'name') {
         const results = await ScoreCard.find({ name: req.query.queryString })
         let ret = results.map((result) => {
