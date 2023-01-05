@@ -1,5 +1,5 @@
-step 1. cd client && yarn && yarn start
-step 2. cd server && yarn && yarn server
+step 1. cd client && yarn && yarn start  
+step 2. cd server && yarn && yarn server  
 
 功能：
 * 登入：可以使用google或自行註冊帳號以登入
